@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Love!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#1c1d1f;
+  --lace:#e8e0cd;
+  --lace-ink:#d3c9b3;
+  --panel:#e7e0d0;
+  --ink:#3a352e;
+  --hole:#2b2a28;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1d1f}}
+:root[data-theme="dark"]{--bg:#1c1d1f}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
+  font-family:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(12px,4vw,48px);
+}
+.doily{
+  width:min(920px,100%);
+  padding:clamp(26px,6vw,64px);
+  background:
+    radial-gradient(circle,transparent 4px,var(--lace-ink) 4.6px,var(--lace-ink) 5.6px,transparent 6.2px) 0 0/26px 26px,
+    radial-gradient(circle,var(--lace-ink) 1.1px,transparent 1.6px) 13px 13px/13px 13px,
+    var(--lace);
+  --s:28px;
+  -webkit-mask:
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) top left/28px 28px repeat-x,
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) bottom left/28px 28px repeat-x,
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) top left/28px 28px repeat-y,
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) top right/28px 28px repeat-y,
+    linear-gradient(#000,#000) center/calc(100% - 28px) calc(100% - 28px) no-repeat;
+  mask:
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) top left/28px 28px repeat-x,
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) bottom left/28px 28px repeat-x,
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) top left/28px 28px repeat-y,
+    radial-gradient(circle at 14px 14px,#000 13.5px,#0000 14px) top right/28px 28px repeat-y,
+    linear-gradient(#000,#000) center/calc(100% - 28px) calc(100% - 28px) no-repeat;
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));
+}
+.panel{
+  position:relative;
+  border:6px dotted var(--hole);
+  outline:2px solid var(--lace);
+  outline-offset:-1px;
+  padding:clamp(22px,5vw,52px) clamp(16px,5vw,64px);
+  text-align:center;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .22 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    var(--panel);
+}
+.code{font-weight:700;margin:0;letter-spacing:.01em}
+.top{font-size:clamp(13px,2.4vw,16px);margin-bottom:clamp(18px,3vw,28px)}
+.bottom{font-size:clamp(14px,2.8vw,19px);margin-top:clamp(20px,3vw,30px)}
+.copy{
+  max-width:66ch;margin:0 auto;
+  font-size:clamp(11.5px,2.1vw,13.5px);line-height:1.75;
+}
+.copy p{margin:0 0 1.5em}
+.copy p:last-child{margin-bottom:0}
+.sign{
+  margin:clamp(20px,3vw,30px) 0 0;
+  font-style:italic;font-weight:700;font-size:clamp(12px,2.2vw,14px);
+}
+.heart{display:inline-block;transition:transform .25s ease}
+.sign:hover .heart,.sign:focus-within .heart{transform:scale(1.35)}
+
+/* one reveal on load: the card writes itself in top to bottom */
+@media (prefers-reduced-motion:no-preference){
+  .panel>*{opacity:0;animation:in .9s ease forwards}
+  .panel>.top{animation-delay:.2s}
+  .copy{animation-delay:.7s}
+  .bottom{animation-delay:1.4s}
+  .sign{animation-delay:1.9s}
+  @keyframes in{from{opacity:0}to{opacity:1}}
+}
+</style>
+</head>
+<body>
+<main class="doily">
+  <article class="panel">
+    <p class="code top">while (alive) { cherish(you); }</p>
+
+    <div class="copy">
+      <p>I have always thought that love was the kind of thing that lived mostly in the stomach—giddy, embarrassed, and half-laughing at itself. I didn’t know what love was supposed to be, back when it was raw, unaltered, and allowed to just be whatever it wanted to be. I used to think of it as a rigid set of instructions to follow, but none of those definitions ever sounded quite like the love I found with you.</p>
+
+      <p>If I had a time machine to go back into the past, I would tell my younger self to always brace for what’s ahead, because I had no idea how profoundly everything was about to shift. Back then, my world revolved neatly around my loved ones, my daily routines, my quiet dreams, and my personal values. I never could have imagined that those boundaries would expand so effortlessly—that now, it is all of those things, and most importantly, it is YOU.</p>
+
+      <p>You are the person I never realized I was waiting for, and the quiet comfort at the close of my longest days. Thank you for revealing that love need not be complex or burdensome—that with you, it simply feels like returning home.</p>
+
+      <p>To my best friend, #1 frenemy ever since, and the loml, allow your life to unfold with no rigid expectations, no fixed outcomes in mind, and the freedom to simply be entirely, wonderfully yourself.</p>
+    </div>
+
+    <p class="code bottom">System.out.println("Happy Birthday, Love!");</p>
+
+    <p class="sign">with &lt;3, r xx</p>
+  </article>
+</main>
+</body>
+</html>
